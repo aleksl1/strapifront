@@ -1,0 +1,15 @@
+.header-container {
+  width: 93%;
+  margin-bottom: 1rem;
+}
+
+.btnwrap {
+  margin-top: 1rem;
+}
+
+.header-container span {
+  display: inline-block;
+  width: 150px;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid black;
+}

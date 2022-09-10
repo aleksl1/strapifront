@@ -1,0 +1,21 @@
+.about {
+  width: 93%;
+  margin-bottom: 1rem;
+}
+.about h1 {
+  font-size: 23px;
+  margin: 0 0 0.5rem 0;
+}
+.about h4 {
+  text-align: justify;
+}
+.about p {
+  text-align: justify;
+}
+.about .line {
+  width: 150px;
+  margin: 2px auto 2px 0;
+}
+.btncontainer {
+  text-align: center;
+}

@@ -1,0 +1,39 @@
+.offer {
+  width: 93%;
+}
+.offer h1 {
+  margin-bottom: 8px;
+}
+.line {
+  width: 150px;
+  margin: 2px auto 16px 0;
+}
+.tiles-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.tile {
+  width: 40vw;
+  height: 40vw;
+  max-width: 300px;
+  max-height: 300px;
+  border: solid 1px var(--button-bgc);
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.7rem;
+  cursor: pointer;
+}
+.tile h3 {
+  font-size: 15px;
+}
+.tile:hover {
+  background-color: var(--button-bgc);
+  color: white;
+}
+.tile:hover h3 {
+  font-size: 16px;
+}
