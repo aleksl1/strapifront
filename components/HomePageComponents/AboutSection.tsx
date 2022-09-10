@@ -1,8 +1,10 @@
+import { useRouter } from "next/router";
 import { FunctionComponent } from "react";
 import styles from "./AboutSection.module.css";
 interface AboutSectionProps {}
 
 const AboutSection: FunctionComponent<AboutSectionProps> = () => {
+  const router = useRouter();
   return (
     <div className="container">
       <section className={styles.about}>
@@ -21,7 +23,11 @@ const AboutSection: FunctionComponent<AboutSectionProps> = () => {
           Sprawiedliwości RP
         </p>
         <div className={styles.btncontainer}>
-          <button className="button-24" role="button">
+          <button
+            className="button-24"
+            role="button"
+            onClick={() => router.push("/kancelaria")}
+          >
             Więcej o kancelarii
           </button>
         </div>
