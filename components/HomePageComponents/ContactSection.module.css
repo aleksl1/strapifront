@@ -15,7 +15,7 @@
 .contact-card {
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   padding: 20px;
   background-color: rgba(168, 168, 168, 0.313);
