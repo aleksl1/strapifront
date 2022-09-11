@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { FunctionComponent, useState } from "react";
 import AmentCard from "../../components/HomePageComponents/AmentCard";
+import Loader from "../../components/Loader";
 import Pagination from "../../components/Pagination";
 import styles from "./AnnouncementsPage.module.css";
 
@@ -10,6 +11,7 @@ const pages = 15;
 
 const AnnouncementsPage: FunctionComponent<AnnouncementsPageProps> = () => {
   const [query, setQuery] = useState("");
+  const [isLoaded, setIsLoaded] = useState(true);
   const router = useRouter();
   const inputChangeHandler = (e: any) => {
     setQuery(e.target.value);
@@ -27,20 +29,24 @@ const AnnouncementsPage: FunctionComponent<AnnouncementsPageProps> = () => {
           Wyszukaj
         </button>
       </div>
-      <div className={styles.results}>
-        <Pagination max={pages} />
-        <AmentCard />
-        <AmentCard />
-        <AmentCard />
-        <AmentCard />
-        <AmentCard />
-        <AmentCard />
-        <AmentCard />
-        <AmentCard />
-        <AmentCard />
-        <AmentCard />
-        <Pagination max={pages} />
-      </div>
+      {isLoaded ? (
+        <div className={styles.results}>
+          <Pagination max={pages} />
+          <AmentCard />
+          <AmentCard />
+          <AmentCard />
+          <AmentCard />
+          <AmentCard />
+          <AmentCard />
+          <AmentCard />
+          <AmentCard />
+          <AmentCard />
+          <AmentCard />
+          <Pagination max={pages} />
+        </div>
+      ) : (
+        <Loader />
+      )}
     </main>
   );
 };
