@@ -1,3 +1,6 @@
+.pagination {
+  margin: 1rem;
+}
 .pagination span {
   display: inline-block;
   min-width: 20px;

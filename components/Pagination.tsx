@@ -12,15 +12,13 @@ const Pagination: FunctionComponent<PaginationProps> = ({ max }) => {
   const [pages, setPages] = useState<number[]>();
 
   useEffect(() => {
-    if (!router.query.strona) {
-      setActivePage(1);
-    } else if (
-      Number(router.query.strona) < 1 ||
-      Number(router.query.strona) > max
+    if (
+      Number(router.query.strona) >= 1 ||
+      Number(router.query.strona) <= max
     ) {
-      setActivePage(1);
-    } else {
       setActivePage(Number(router.query.strona));
+    } else {
+      setActivePage(1);
     }
   }, [router.query.strona, max]);
 
@@ -38,7 +36,7 @@ const Pagination: FunctionComponent<PaginationProps> = ({ max }) => {
   const changePageHandler = (pageNumber: number) => {
     let page = pageNumber;
     if (page < 1) page = 1;
-    if (page > 15) page = 15;
+    if (page > max) page = max;
     router.push({
       pathname: router.pathname,
       query: { strona: page },
