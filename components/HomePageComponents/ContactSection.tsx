@@ -15,7 +15,7 @@ const ContactSection: FunctionComponent<ContactSectionProps> = () => {
 
   return (
     <div className={styles["contact-wrapper"]}>
-      <section className={styles.contact}>
+      <section id="contact" className={styles.contact}>
         {showCard && <ContactCardModal toggleModal={toggleModal} />}
         <h3>Skontaktuj się z nami</h3>
         <div className={styles.email}>
