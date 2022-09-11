@@ -2,15 +2,15 @@ import { FunctionComponent } from "react";
 import styles from "./ContactSection.module.css";
 import { IoIosCloseCircle } from "react-icons/io";
 interface ContactCardModalProps {
-  showModal: (show: boolean) => void;
+  toggleModal: () => void;
 }
 
 const ContactCardModal: FunctionComponent<ContactCardModalProps> = ({
-  showModal,
+  toggleModal,
 }) => {
   return (
     <div className={styles.modal}>
-      <div className={styles.close} onClick={() => showModal(false)}>
+      <div className={styles.close} onClick={() => toggleModal()}>
         <IoIosCloseCircle size={"3rem"} />
       </div>
       <div className={styles["contact-card"]}>

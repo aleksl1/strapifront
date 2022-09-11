@@ -9,14 +9,14 @@ interface ContactSectionProps {}
 const ContactSection: FunctionComponent<ContactSectionProps> = () => {
   const [showCard, setShowCard] = useState(false);
 
-  const showModal = (show: boolean) => {
-    setShowCard(show);
+  const toggleModal = () => {
+    setShowCard(!showCard);
   };
 
   return (
     <div className={styles["contact-wrapper"]}>
       <section className={styles.contact}>
-        {showCard && <ContactCardModal showModal={showModal} />}
+        {showCard && <ContactCardModal toggleModal={toggleModal} />}
         <h3>Skontaktuj się z nami</h3>
         <div className={styles.email}>
           <MdOutlineMail size={"2.3rem"} />
@@ -29,7 +29,7 @@ const ContactSection: FunctionComponent<ContactSectionProps> = () => {
             <span>+48 221 010 225</span>
           </div>
         </div>
-        <div className={styles.card} onClick={() => showModal(true)}>
+        <div className={styles.card} onClick={() => toggleModal()}>
           <BsCardText size={"3rem"} />
           <div>
             <p>Wizytówka</p>

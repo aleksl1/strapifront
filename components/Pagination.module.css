@@ -1,0 +1,13 @@
+.pagination span {
+  display: inline-block;
+  min-width: 20px;
+  text-align: center;
+  margin: 0 5px;
+  border-bottom: solid 1px var(--button-bgc);
+  cursor: pointer;
+}
+
+.activePage {
+  background-color: var(--button-bgc);
+  color: white;
+}
