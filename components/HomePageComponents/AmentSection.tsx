@@ -18,7 +18,7 @@ const AmentSection: FunctionComponent<AmentSectionProps> = () => {
       <AmentCard />
       <AmentCard />
       <AmentCard />
-      <div className={styles["header-container"]}>
+      <div className={styles["btn-container"]}>
         <div className={styles.btnwrap}>
           <button
             className="button-24"
