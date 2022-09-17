@@ -1,7 +1,65 @@
 .card {
   width: 93%;
-  height: 90px;
+  min-height: 150px;
+  max-height: 200px;
   border-radius: 15px;
-  background-color: rgba(198, 196, 196, 0.346);
+  background-color: var(--button-bgc);
+  border: solid 1px var(--button-bgc);
   margin: 0.3rem 0;
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+}
+.card:hover {
+  box-shadow: 0px 0px 6px 0px var(--button-bgc);
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: white;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.title {
+  margin: 0.5rem 0;
+  text-align: center;
+}
+.title h2 {
+  font-size: 19px;
+  margin: 0;
+}
+.subtitle {
+  max-height: 100px;
+  overflow: hidden;
+  margin-left: 1rem;
+  text-align: left;
+}
+.subtitle p {
+  font-size: 15px;
+  margin: 0;
+}
+.footer {
+  width: 90%;
+  font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+.footer span {
+  display: inline-block;
+}
+.creator span {
+  font-style: italic;
+}
+
+.end {
+  justify-self: flex-end;
+  background-color: var(--button-bgc);
+  color: white;
+  display: flex;
+  align-items: center;
+  opacity: 0.9;
 }
