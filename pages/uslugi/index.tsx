@@ -6,6 +6,7 @@ interface OffersPageProps {}
 const OffersPage: FunctionComponent<OffersPageProps> = () => {
   return (
     <div>
+      <div></div>
       <br /> <br />
       <br /> <br />
       <OfferSection />
