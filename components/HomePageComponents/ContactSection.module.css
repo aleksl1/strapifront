@@ -2,7 +2,10 @@
   position: relative;
   background-color: var(--button-bgc);
   color: white;
-  padding: 2rem 0 2rem;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 60px;
 }
 .contact {
@@ -12,7 +15,7 @@
 }
 .contact h3 {
   margin-top: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 .contact-card {
   display: flex;
