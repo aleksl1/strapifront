@@ -23,7 +23,13 @@ const Pagination: FunctionComponent<PaginationProps> = ({ max }) => {
   }, [router.query.strona, max]);
 
   useEffect(() => {
-    if (activePage >= max - 2 && activePage <= max) {
+    if (max < 5) {
+      const pages = [];
+      for (let i = 1; i <= max; i++) {
+        pages.push(i);
+      }
+      setPages(pages);
+    } else if (activePage >= max - 2 && activePage <= max) {
       setPages([1, max - 3, max - 2, max - 1, max]);
     } else if (activePage < 3 && activePage > 0) {
       setPages([1, 2, 3, 4, max]);
