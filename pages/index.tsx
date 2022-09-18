@@ -35,7 +35,7 @@ export default Home;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const posts = await fetch(
-    "http://localhost:1337/api/posts?pagination[pageSize]=5"
+    "http://localhost:1337/api/posts?pagination[pageSize]=5&sort=publishedAt:desc"
   )
     .then((res) => {
       return res.json();

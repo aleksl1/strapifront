@@ -65,8 +65,9 @@ const AnnouncementsPage: FunctionComponent<AnnouncementsPageProps> = ({
 export default AnnouncementsPage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  const page = context.query.strona ? context.query.strona : 1;
   const data: PostsWithPagination | void = await fetch(
-    `http://localhost:1337/api/posts?pagination[page]=${context.query.strona}&pagination[pageSize]=10`
+    `http://localhost:1337/api/posts?pagination[page]=${page}&pagination[pageSize]=10&sort=publishedAt:desc`
   )
     .then((res) => {
       return res.json();
