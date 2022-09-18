@@ -5,9 +5,13 @@ import AboutSection from "../components/HomePageComponents/AboutSection";
 import AmentSection from "../components/HomePageComponents/AmentSection";
 import ContactSection from "../components/HomePageComponents/ContactSection";
 import OfferSection from "../components/HomePageComponents/OfferSection";
+import { PostType } from "../models/Post.model";
 import styles from "../styles/Home.module.css";
+interface HomeProps {
+  posts: PostType[];
+}
 
-const Home: NextPage = () => {
+const Home = ({ posts }: HomeProps) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -16,7 +20,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <AmentSection />
+        <AmentSection posts={posts} />
         <div className={styles.line} />
         <AboutSection />
         <div className={styles.line} />
@@ -30,12 +34,17 @@ const Home: NextPage = () => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  fetch("http://localhost:1337/api/posts")
-    .then((res) => res.json())
-    .then((data) => console.log(data.data, data.meta))
+  const posts = await fetch("http://localhost:1337/api/posts?populate=media")
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      return data.data;
+    })
     .catch((err) => console.log(err));
-
   return {
-    props: {}, // will be passed to the page component as props
+    props: {
+      posts: posts,
+    }, // will be passed to the page component as props
   };
 };
