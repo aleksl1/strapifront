@@ -2,10 +2,13 @@ import { FunctionComponent } from "react";
 import styles from "./AmentSection.module.css";
 import AmentCard from "./AmentCard";
 import { useRouter } from "next/router";
+import { PostType } from "../../models/Post.model";
 
-interface AmentSectionProps {}
+interface AmentSectionProps {
+  posts: PostType[];
+}
 
-const AmentSection: FunctionComponent<AmentSectionProps> = () => {
+const AmentSection: FunctionComponent<AmentSectionProps> = ({ posts }) => {
   const router = useRouter();
 
   return (
@@ -14,10 +17,11 @@ const AmentSection: FunctionComponent<AmentSectionProps> = () => {
         <h1>Obwieszczenia</h1>
         <span>Ostatnio dodane</span>
       </div>
-
-      <AmentCard />
-      <AmentCard />
-      <AmentCard />
+      {posts.map((post: PostType) => {
+        return (
+          <AmentCard key={post.id} id={post.id} attributes={post.attributes} />
+        );
+      })}
       <div className={styles["btn-container"]}>
         <div className={styles.btnwrap}>
           <button

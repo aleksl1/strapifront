@@ -22,6 +22,8 @@
   background-color: white;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .title {
   margin: 0.5rem 0;
@@ -40,6 +42,10 @@
 .subtitle p {
   font-size: 15px;
   margin: 0;
+}
+.subtitle p span {
+  font-weight: bold;
+  font-size: 13px;
 }
 .footer {
   width: 90%;
