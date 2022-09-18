@@ -1,17 +1,28 @@
 import { useRouter } from "next/router";
+import { GetServerSideProps } from "next/types";
 import { FunctionComponent, useState } from "react";
 import AmentCard from "../../components/HomePageComponents/AmentCard";
 import Loader from "../../components/Loader";
 import Pagination from "../../components/Pagination";
+import { PostsWithPagination } from "../../models/Other.models";
+import { PostType } from "../../models/Post.model";
+import { PaginationType } from "../../models/Other.models";
 import styles from "./AnnouncementsPage.module.css";
 
-interface AnnouncementsPageProps {}
+interface AnnouncementsPageProps {
+  posts: PostType[];
+  pagination: PaginationType;
+}
 
 const pages = 15;
 
-const AnnouncementsPage: FunctionComponent<AnnouncementsPageProps> = () => {
+const AnnouncementsPage: FunctionComponent<AnnouncementsPageProps> = ({
+  posts,
+  pagination,
+}) => {
   const [query, setQuery] = useState("");
   const [isLoaded, setIsLoaded] = useState(true);
+  const { pageCount: pages } = pagination;
   const router = useRouter();
   const inputChangeHandler = (e: any) => {
     setQuery(e.target.value);
@@ -32,16 +43,16 @@ const AnnouncementsPage: FunctionComponent<AnnouncementsPageProps> = () => {
       {isLoaded ? (
         <div className={styles.results}>
           <Pagination max={pages} />
-          <AmentCard />
-          <AmentCard />
-          <AmentCard />
-          <AmentCard />
-          <AmentCard />
-          <AmentCard />
-          <AmentCard />
-          <AmentCard />
-          <AmentCard />
-          <AmentCard />
+          {posts?.map((post: PostType) => {
+            return (
+              <AmentCard
+                key={post.id}
+                id={post.id}
+                attributes={post.attributes}
+              />
+            );
+          })}
+
           <Pagination max={pages} />
         </div>
       ) : (
@@ -52,3 +63,25 @@ const AnnouncementsPage: FunctionComponent<AnnouncementsPageProps> = () => {
 };
 
 export default AnnouncementsPage;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const data: PostsWithPagination | void = await fetch(
+    `http://localhost:1337/api/posts?pagination[page]=${context.query.strona}&pagination[pageSize]=10`
+  )
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      return { posts: data.data, pagination: data.meta.pagination };
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  return {
+    props: {
+      posts: data?.posts,
+      pagination: data?.pagination,
+    }, // will be passed to the page component as props
+  };
+};

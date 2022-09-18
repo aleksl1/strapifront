@@ -1,10 +1,10 @@
-import type { GetStaticProps, NextPage } from "next";
+import type { GetServerSideProps } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import AboutSection from "../components/HomePageComponents/AboutSection";
 import AmentSection from "../components/HomePageComponents/AmentSection";
 import ContactSection from "../components/HomePageComponents/ContactSection";
 import OfferSection from "../components/HomePageComponents/OfferSection";
+import Loader from "../components/Loader";
 import { PostType } from "../models/Post.model";
 import styles from "../styles/Home.module.css";
 interface HomeProps {
@@ -20,7 +20,7 @@ const Home = ({ posts }: HomeProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <AmentSection posts={posts} />
+        {posts ? <AmentSection posts={posts} /> : <Loader />}
         <div className={styles.line} />
         <AboutSection />
         <div className={styles.line} />
@@ -33,8 +33,10 @@ const Home = ({ posts }: HomeProps) => {
 
 export default Home;
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const posts = await fetch("http://localhost:1337/api/posts?populate=media")
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const posts = await fetch(
+    "http://localhost:1337/api/posts?pagination[pageSize]=5"
+  )
     .then((res) => {
       return res.json();
     })

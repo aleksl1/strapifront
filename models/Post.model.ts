@@ -6,7 +6,7 @@ export type PostAttributes = {
   publishedAt: string;
   title: string;
   description: string;
-  media: MediaType;
+  media?: MediaType;
 };
 
 export type PostType = {
