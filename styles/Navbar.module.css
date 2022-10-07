@@ -16,13 +16,18 @@
 .navbar {
   width: 100%;
   box-shadow: var(--nav-shadow);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(245, 245, 233, 1) 50%,
+    rgba(255, 255, 255, 1) 100%
+  );
 }
 
 .nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 62px;
+  display: block;
+  position: relative;
+  height: 80px;
 }
 
 .navbar .nav-container li {
@@ -39,12 +44,6 @@
 
 .navbar .nav-container a:hover {
   font-weight: bolder;
-}
-
-.nav-container {
-  display: block;
-  position: relative;
-  height: 80px;
 }
 
 .nav-container .checkbox {
@@ -110,6 +109,24 @@
   z-index: 1;
 }
 
+@media (min-width: 800px) {
+  .navbar .menu-items {
+    position: relative;
+    box-shadow: var(--nav-shadow);
+    height: 80px;
+    width: 70%;
+    padding: 0;
+    transform: translate(0, 0);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    transition: transform 0.5s ease-in-out;
+    text-align: center;
+    background-color: var(--button-bgc);
+    z-index: 1;
+  }
+}
+
 .navbar .menu-items li {
   margin-bottom: 1.2rem;
   font-size: 1.5rem;
@@ -127,6 +144,7 @@
   align-items: center;
   flex-wrap: wrap;
   width: 160px;
+  cursor: pointer;
 }
 .logo h1 {
   margin-bottom: 0;
@@ -152,4 +170,49 @@
 .nav-container .hamburger-lines .line3-open {
   transform: rotate(-45deg);
   background-color: white;
+}
+.navbar .nav-container .active a {
+  color: rgb(250, 164, 164);
+}
+@media (min-width: 800px) {
+  #mobile,
+  #mobile-items {
+    display: none;
+  }
+  .nav-container {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  #desktop-items {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 2rem;
+    width: 80%;
+  }
+  .navbar .nav-container a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.7rem;
+  }
+  .navbar .nav-container .active a {
+    color: var(--button-bgc);
+    border-bottom: 2px var(--button-bgc) solid;
+  }
+  .navbar .nav-container a:hover {
+    font-weight: 500;
+    color: var(--button-bgc);
+    opacity: 0.9;
+    border-bottom: 2px var(--button-bgc) solid;
+  }
+}
+@media (min-width: 1200px) {
+  .navbar .nav-container a {
+    font-size: 1.3rem;
+    padding: 0;
+    margin: 0.7rem 1.3rem;
+  }
 }
