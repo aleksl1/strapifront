@@ -9,7 +9,7 @@ const navRoutes = [
   { name: "Strona Główna", path: "/" },
   { name: "Obwieszczenia", path: "/obwieszczenia" },
   { name: "O Kancelarii", path: "/kancelaria" },
-  { name: "Usługi", path: "/usługi" },
+  { name: "Usługi", path: "/uslugi" },
   { name: "Kontakt", path: "/#contact" },
 ];
 
