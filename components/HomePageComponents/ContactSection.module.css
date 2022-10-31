@@ -3,6 +3,7 @@
   background-color: var(--button-bgc);
   color: white;
   height: 80vh;
+  max-height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,6 +17,7 @@
 .contact h3 {
   margin-top: 0;
   margin-bottom: 3rem;
+  text-align: center;
 }
 .contact-card {
   display: flex;
@@ -72,7 +74,7 @@
 }
 .modal {
   position: absolute;
-  bottom: 40px;
+  bottom: 70px;
   right: 10px;
   width: 300px;
   background-color: gray;
@@ -84,4 +86,47 @@
   left: 245px;
   color: var(--button-bgc);
   cursor: pointer;
+}
+@media (min-width: 600px) {
+  .contact-wrapper {
+    height: 300px;
+  }
+  .contact {
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .contact h3 {
+    margin: 1rem 0 2rem;
+    font-size: 1.3rem;
+    text-align: start;
+  }
+  .email,
+  .phone,
+  .card {
+    font-size: 1rem;
+  }
+
+  .modal {
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(100%, 50%);
+    width: 280px;
+    border-radius: 25px;
+  }
+  .modal span {
+    text-align: justify;
+  }
+  .close {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .modal {
+    width: 450px;
+  }
 }

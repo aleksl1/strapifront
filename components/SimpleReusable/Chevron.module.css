@@ -1,0 +1,12 @@
+.chevronRight {
+  transform: rotate(45deg);
+}
+.chevronLeft {
+  transform: translateX(50%) rotate(225deg);
+}
+.chevronUp {
+  transform: translateX(50%) rotate(-45deg);
+}
+.chevronDown {
+  transform: translate(50%, -50%) rotate(135deg);
+}

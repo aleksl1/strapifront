@@ -7,7 +7,7 @@ import ContactCardModal from "./ContactCardModal";
 interface ContactSectionProps {}
 
 const ContactSection: FunctionComponent<ContactSectionProps> = () => {
-  const [showCard, setShowCard] = useState(false);
+  const [showCard, setShowCard] = useState(true);
 
   const toggleModal = () => {
     setShowCard(!showCard);
