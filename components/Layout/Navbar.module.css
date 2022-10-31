@@ -31,10 +31,12 @@
   box-shadow: 0px 19px 16px -18px rgba(92, 2, 2, 1);
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
-  opacity: 0.95;
-  height: 8px;
+  height: 4px;
   margin: 0 3px;
   width: 44px;
+}
+.burger div:nth-of-type(even) {
+  width: 40px;
 }
 
 .navigation {
@@ -77,6 +79,6 @@
 }
 .iconContainer {
   position: absolute;
-  top: 20px;
+  top: 25px;
   left: 00px;
 }

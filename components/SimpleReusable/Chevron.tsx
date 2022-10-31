@@ -10,8 +10,8 @@ const Chevron: FunctionComponent<ChevronProps> = ({
   pointDirection = "up",
 }) => {
   const defaultStyle = {
-    borderTop: "solid 5px white",
-    borderRight: "solid 5px white",
+    borderTop: "solid 3px white",
+    borderRight: "solid 3px white",
     borderRadius: "5px",
     width: "30px",
     height: "30px",

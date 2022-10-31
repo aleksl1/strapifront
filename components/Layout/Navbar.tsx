@@ -53,6 +53,8 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
           <div />
           <div />
           <div />
+          <div />
+          <div />
         </nav>
       </header>
       <header className={styles.headerDesktop}></header>
